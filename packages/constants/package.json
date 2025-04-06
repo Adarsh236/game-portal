@@ -1,0 +1,11 @@
+{
+  "name": "@game-portal/constants",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "eslint": "^9.23.0",
+    "typescript": "5.8.2"
+  }
+}
