@@ -34,7 +34,7 @@ const WelcomePage: React.FC<WelcomeProps> = ({ content }) => {
   return (
     <>
       <Head>
-        <title>{content.title} Casino Portal</title>
+        <title>{content.title}</title>
         <meta name="description" content={content.description} />
       </Head>
       <main>

@@ -34,7 +34,29 @@ export interface Game {
   localisation: any;
 }
 
-export interface User {
+export interface User extends UserLogin {
+  market: 'en' | 'ca';
+  firstName: string;
+  lastName: string;
+}
+
+export interface UserLogin {
   username: string;
-  market: "en" | "ca";
+  password: string;
+}
+
+export interface DBData {
+  name: string;
+  version: number;
+  storeId: string;
+  keyPath: string;
+}
+
+export interface GridConfig {
+  columnCount: number;
+  columnWidth: number;
+  rowCount: number;
+  rowHeight: number;
+  gridWidth: number;
+  gridHeight: number;
 }
