@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import Head from "next/head";
-import { useSelector } from "react-redux";
-import { FixedSizeGrid as Grid } from "react-window";
+import Head from 'next/head';
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { FixedSizeGrid as Grid } from 'react-window';
 
-import { RootState } from "../redux/store";
+import { RootState } from '../redux/store';
 
-import { useWebSocket } from "../hooks/useWebSocket";
-import { useInfiniteQueryGames } from "../hooks/useInfiniteQueryGames";
-import { GameGrid } from "../components/game-grid";
-import { infinityGridConfig } from "../helpers/grid-config";
-import { useWindowDimensions } from "../hooks/useWindowDimensions";
+import { GameGrid } from '../components/game-grid';
+import { infinityGridConfig } from '../helpers/grid-config';
+import { useInfiniteQueryGames } from '../hooks/useInfiniteQueryGames';
+import { useWebSocket } from '../hooks/useWebSocket';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
 export const LiveCasinoLobby: React.FC = () => {
   const {
@@ -40,7 +40,7 @@ export const LiveCasinoLobby: React.FC = () => {
           fetchNextPage();
         }
       },
-      { threshold: 1 }
+      { threshold: 1 },
     );
 
     if (loadMoreRef.current) observer.observe(loadMoreRef.current);
@@ -76,7 +76,7 @@ export const LiveCasinoLobby: React.FC = () => {
         <h1>Casino Lobby </h1>
         <p>Note: In this Page we are using useQuery from React Query</p>
 
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Grid
             columnCount={columnCount}
             columnWidth={columnWidth}
@@ -84,7 +84,7 @@ export const LiveCasinoLobby: React.FC = () => {
             rowCount={rowCount}
             rowHeight={rowHeight}
             width={gridWidth}
-            style={{ overflow: "visible" }}
+            style={{ overflow: 'visible' }}
           >
             {({ columnIndex, rowIndex, style }) => (
               <GameGrid
@@ -103,9 +103,9 @@ export const LiveCasinoLobby: React.FC = () => {
           {isFetchingNextPage && (
             <p
               style={{
-                textAlign: "center",
-                width: "100%",
-                paddingBottom: "1rem",
+                textAlign: 'center',
+                width: '100%',
+                paddingBottom: '1rem',
               }}
             >
               Loading more...
@@ -114,7 +114,7 @@ export const LiveCasinoLobby: React.FC = () => {
           {/* Invisible trigger element to auto-load more games */}
           <div
             ref={loadMoreRef}
-            style={{ height: "150px", width: "100%", display: "block" }}
+            style={{ height: '150px', width: '100%', display: 'block' }}
           />
         </div>
       </main>

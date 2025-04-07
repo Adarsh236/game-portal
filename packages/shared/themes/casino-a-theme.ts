@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google';
 import { getCssVariable } from '../helpers/utils';
 
 export const casinoATheme = createTheme({
+  cssVariables: true,
   palette: {
     primary: {
       main: getCssVariable('--primary-color', '#872db6'),

@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+import { IMAGES_PATTERN } from '@game-portal/constants/brands';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: IMAGES_PATTERN,
+  },
 };
 
 export default nextConfig;

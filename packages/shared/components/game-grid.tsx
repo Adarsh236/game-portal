@@ -1,18 +1,17 @@
-import React, { memo } from "react";
-import { FixedSizeGrid as Grid } from "react-window";
+import React, { memo } from 'react';
 
-import { Game } from "@game-portal/types";
-import dynamic from "next/dynamic";
-import type { GameCardProps } from "./game-card";
+import { Game } from '@game-portal/types';
+import dynamic from 'next/dynamic';
+import type { GameCardProps } from './game-card';
 
 const GameCard = memo(
   dynamic<GameCardProps>(
-    () => import("./game-card.js").then((mod) => mod.default),
+    () => import('./game-card.js').then((mod) => mod.GameCard),
     {
       ssr: false,
-      loading: () => <div style={{ padding: "1rem" }}>Loading game...</div>,
-    }
-  )
+      loading: () => <div style={{ padding: '1rem' }}>Loading game...</div>,
+    },
+  ),
 );
 
 interface GameGridProps {

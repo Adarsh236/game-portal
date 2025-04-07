@@ -1,16 +1,14 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
-import AdbIcon from "@mui/icons-material/Adb";
-
-import { themeUITheme } from "@game-portal/constants/brands/casino-b/theme";
+import AdbIcon from '@mui/icons-material/Adb';
 
 interface HeaderProps {
   content: any;
@@ -26,10 +24,17 @@ export const Header: React.FC<HeaderProps> = ({
   onClickToggle,
 }) => {
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={[
+        (theme) => ({
+          backgroundColor: theme.palette.primary.main,
+        }),
+      ]}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -37,12 +42,11 @@ export const Header: React.FC<HeaderProps> = ({
             href="/"
             sx={{
               mr: 2,
-              display: { xs: "none", sm: "flex" },
-              fontFamily: "monospace",
+              display: { xs: 'none', sm: 'flex' },
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'var(--on-secondary)',
+              textDecoration: 'none',
             }}
           >
             {content.title}
@@ -51,8 +55,8 @@ export const Header: React.FC<HeaderProps> = ({
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", sm: "flex" },
-              justifyContent: "center",
+              display: { xs: 'none', sm: 'flex' },
+              justifyContent: 'center',
             }}
           >
             {content.pages.map(
@@ -62,30 +66,34 @@ export const Header: React.FC<HeaderProps> = ({
                   <Button
                     key={title}
                     onClick={() => onClickNavigate(link)}
-                    sx={{ my: 2, color: "white", display: "block" }}
+                    sx={{
+                      my: 2,
+                      color: 'var(--on-secondary)',
+                      display: 'block',
+                    }}
                   >
                     {title}
                   </Button>
                 );
-              }
+              },
             )}
           </Box>
 
-          <AdbIcon sx={{ display: { xs: "flex", sm: "none" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
-              display: { xs: "flex", sm: "none" },
+              display: { xs: 'flex', sm: 'none' },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'var(--on-secondary)',
+              textDecoration: 'none',
             }}
           >
             {content.title}
@@ -96,9 +104,10 @@ export const Header: React.FC<HeaderProps> = ({
               <Button
                 onClick={() => onClickToggle(false)}
                 style={{
-                  backgroundColor: themeUITheme.colors.primary,
-                  color: "white",
+                  backgroundColor: 'var(--secondary)',
+                  color: 'var(--on-secondary)',
                 }}
+                color="primary"
               >
                 {content.buttons.login.text}
               </Button>
@@ -106,8 +115,8 @@ export const Header: React.FC<HeaderProps> = ({
               <Button
                 onClick={() => onClickToggle(true)}
                 style={{
-                  backgroundColor: themeUITheme.colors.primary,
-                  color: "white",
+                  backgroundColor: 'var(--secondary)',
+                  color: 'var(--on-secondary)',
                 }}
               >
                 {content.buttons.logout.text}

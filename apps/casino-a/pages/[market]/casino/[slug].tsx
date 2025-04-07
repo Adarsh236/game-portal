@@ -1,16 +1,14 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { Game } from "@game-portal/types";
+import { Game } from '@game-portal/types';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
 // import { cookies } from "next/headers";
 // import { BRANDS } from "@game-portal/constants/feature-flags";
-import { BRANDS } from "@game-portal/constants/src/feature-flags"; // Exports categories JSON
-import myGames from "@game-portal/constants/src/my-games.json"; // Exports the game list
+import cookie from 'cookie';
 interface GameStageProps {
   game: Game;
   isLoggedIn: boolean;
 }
-import cookie from "cookie";
 
 // export const getStaticPaths: GetStaticPaths = async () => {
 //   // const games: Game[] = myGames;
@@ -92,10 +90,10 @@ import cookie from "cookie";
 // export default GameStage;
 
 export const getServerSideProps: GetServerSideProps<GameStageProps> = async (
-  context
+  context,
 ) => {
   const { market, slug } = context.params!;
-  const games: Game[] = require("@game-portal/constants/src/games.json");
+  const games: Game[] = require('@game-portal/constants/games.json');
   const game = games.find((g: Game) => g.slug === slug);
   if (!game) {
     return { notFound: true };
@@ -120,7 +118,7 @@ const GameStage: React.FC<GameStageProps> = ({ game, isLoggedIn }) => {
         <title>{game.name} - Play Now</title>
         <meta
           name="description"
-          content={`Play ${game.name} for ${isLoggedIn ? "real money" : "free"}.`}
+          content={`Play ${game.name} for ${isLoggedIn ? 'real money' : 'free'}.`}
         />
       </Head>
       <main>

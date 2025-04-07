@@ -1,6 +1,7 @@
+'use client';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../components/header';

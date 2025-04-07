@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { Game } from "@game-portal/types";
+import { Game } from '@game-portal/types';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 // Module-level cache
 let cachedGames: Game[] | null = null;
@@ -8,7 +8,7 @@ const CACHE_DURATION = 1000 * 60 * 2; // 2 minutes
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Game[]>
+  res: NextApiResponse<Game[]>,
 ) {
   const now = Date.now();
 
@@ -16,11 +16,11 @@ export default async function handler(
   if (!cachedGames || now - lastFetched > CACHE_DURATION) {
     try {
       // Dynamically import the huge JSON file from the constants package.
-      const imported = await import("@game-portal/constants/src/games.json");
+      const imported = await import('@game-portal/constants/games.json');
       cachedGames = imported.default as Game[];
       lastFetched = now;
     } catch (error) {
-      console.error("Error importing games JSON", error);
+      console.error('Error importing games JSON', error);
       return res.status(500).json([]);
     }
   }

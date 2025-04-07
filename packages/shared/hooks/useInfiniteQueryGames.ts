@@ -1,19 +1,18 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
 import {
-  API_ENDPOINTS,
   PAGE_SIZE,
   USE_INFINITY_QUERY_DB,
-} from "@game-portal/constants/brands";
-import { Game } from "@game-portal/types";
-import { initDB } from "../helpers/idbHelper";
-import Games from "@game-portal/constants/src/games.json";
+} from '@game-portal/constants/brands';
+import Games from '@game-portal/constants/games.json';
+import { Game } from '@game-portal/types';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { initDB } from '../helpers/idbHelper';
 
 const fetchGames = async ({ pageParam = 0 }) => {
-  console.time("@@ useInfiniteQueryGames0");
+  console.time('@@ useInfiniteQueryGames0');
   // const imported = await import("@game-portal/constants/src/games.json");
   // const Games = imported.default as Game[];
   const db = await initDB(USE_INFINITY_QUERY_DB);
-  const writeTx = db.transaction(USE_INFINITY_QUERY_DB.storeId, "readwrite");
+  const writeTx = db.transaction(USE_INFINITY_QUERY_DB.storeId, 'readwrite');
 
   const store = writeTx.store;
 
@@ -47,7 +46,7 @@ const fetchGames = async ({ pageParam = 0 }) => {
 
     // Filter out games that are already in the DB.
     const gamesToWrite = pageGames.filter(
-      (game) => !existingKeys.includes(game.id)
+      (game) => !existingKeys.includes(game.id),
     );
     // Write missing games concurrently.
     if (gamesToWrite.length > 0) {
@@ -58,7 +57,7 @@ const fetchGames = async ({ pageParam = 0 }) => {
   await writeTx.done;
 
   const nextPage = end < (Games as Game[]).length ? pageParam + 1 : undefined;
-  console.timeEnd("@@ useInfiniteQueryGames0");
+  console.timeEnd('@@ useInfiniteQueryGames0');
   return { games: pageGames, nextPage };
 };
 
