@@ -1,0 +1,26 @@
+
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    align-items: center;
+    animation-duration: .25s;
+    animation-iteration-count: 1;
+    animation-name: fadeInAnimation;
+    animation-timing-function: ease-in;
+    background: radial-gradient(5569.79% 141.42% at 0 0, #544bc9 0, #a44bc9 100%);
+    border: .125rem solid #ffd346;
+    border-radius: .75rem;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, .2);
+    color: #fff;
+    display: flex;
+    opacity: 1;
+    padding: 1rem;
+    position: fixed;
+    transform: translateY(-3rem) translateX(-50%);
+    width: calc(-2rem + 100vw);
+    z-index: 1299;
+}

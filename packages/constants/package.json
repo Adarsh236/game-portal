@@ -4,6 +4,9 @@
   "private": true,
   "main": "index.ts",
   "types": "index.ts",
+  "dependencies": {
+    "@game-portal/types": "*"
+  },
   "devDependencies": {
     "eslint": "^9.23.0",
     "typescript": "5.8.2"
