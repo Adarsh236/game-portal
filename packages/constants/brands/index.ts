@@ -19,7 +19,21 @@ export const FEATURE_FLAGS = {
   },
 };
 
-export const MARKETS = ['en', 'ca'] as const;
+/**
+ * Allowed market codes.
+ */
+export const ALLOWED_MARKETS = ['en', 'ca'];
+
+/**
+ * Allowed second-level route segments.
+ */
+export const ALLOWED_PATHS = [
+  '',
+  'login',
+  'casino',
+  'my-profile',
+  'live-casino',
+];
 
 export const CASINO_CONTENT = {
   [BRANDS.CASINO_A]: CASINO_A_CONTENT,

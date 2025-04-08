@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="casino-b">
-      <body className="dsss">
+      <body>
         <AppRouterCacheProvider>
           <MyApp {...pageProps}>{children}</MyApp>
         </AppRouterCacheProvider>

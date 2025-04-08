@@ -22,8 +22,8 @@ export const getStaticProps: GetStaticProps<WelcomeProps> = async ({
   const market = params?.market as string;
 
   const content =
-    CASINO_CONTENT[BRANDS.CASINO_A][
-      market as keyof (typeof CASINO_CONTENT)[typeof BRANDS.CASINO_A]
+    CASINO_CONTENT[BRANDS.CASINO_B][
+      market as keyof (typeof CASINO_CONTENT)[typeof BRANDS.CASINO_B]
     ].home;
 
   return {

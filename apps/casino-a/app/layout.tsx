@@ -18,7 +18,7 @@ export default function RootLayout({
   pageProps: AppProps;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="casino-a">
       <body className="dsss">
         <AppRouterCacheProvider>
           <MyApp {...pageProps}>{children}</MyApp>
