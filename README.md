@@ -81,7 +81,7 @@
 
 ```
 
-# Casino Portal Game App
+# Game Portal Mono Repo
 
 Welcome to the Game Portal App project! This repository contains a scalable, modular game portal built with Next.js and React. The project is organized as a monorepo using Turborepo and is designed for flexibility, high performance, and maintainability.
 
