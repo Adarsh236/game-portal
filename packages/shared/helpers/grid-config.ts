@@ -1,9 +1,9 @@
-import { DBData, GridConfig } from "@game-portal/types";
+import { GridConfig } from '@game-portal/types';
 
 export const queryGridConfig = (
   width: number,
   height: number,
-  length: number
+  length: number,
 ): GridConfig => {
   // Determine column count based on width.
   let columnCount = 1;

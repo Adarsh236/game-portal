@@ -1,5 +1,5 @@
-import { DBData } from "@game-portal/types";
-import { IDBPDatabase, openDB } from "idb";
+import { DBData } from '@game-portal/types';
+import { IDBPDatabase, openDB } from 'idb';
 
 export const initDB = async ({
   name,

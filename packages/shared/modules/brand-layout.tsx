@@ -32,6 +32,11 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
   const dispatch = useDispatch();
   const { content, market } = useContent(brandId);
   const user = useSelector((state: RootState) => state.user);
+  const contentA = useSelector((state: RootState) => state.brand.content);
+
+  // if (!brandId || !brandContent) {
+  //   return <div>Loading...</div>;
+  // }
 
   useEffect(() => {
     // Retrieve cookies for username and userMarket
@@ -52,8 +57,20 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
     }
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   const featureFlags = FEATURE_FLAGS[brandId].en;
+  //   if (content && brandId && featureFlags) {
+  //     dispatch(
+  //       setBrand({
+  //         brandId,
+  //         content,
+  //         featureFlags,
+  //       }),
+  //     );
+  //   }
+  // }, [dispatch]);
+
   useEffect(() => {
-    console.log('@@@ useEffect', content.modal);
     const timer = setTimeout(() => {
       dispatch(addModal(content.modal));
     }, 5000);
