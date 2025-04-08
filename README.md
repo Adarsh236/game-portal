@@ -125,7 +125,6 @@ game-portal
 ├── .husky/
 │   ├── pre-commit
 │   └── pre-push
-├── __tests__
 ├── apps
 │   ├── casino-a
 │   │   ├── app
@@ -151,6 +150,7 @@ game-portal
 │   │   └── package.json
 │   ├── jest-config
 │   ├── shared                     // Shared across all the BRANDS
+│   │   ├── __tests__
 │   │   ├── components
 │   │   ├── helpers
 │   │   ├── hooks
