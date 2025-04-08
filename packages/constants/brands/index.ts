@@ -11,10 +11,10 @@ export type BrandType = typeof BRANDS;
 export const FEATURE_FLAGS = {
   [BRANDS.CASINO_A]: {
     en: { isLiveCasinoEnabled: true },
-    ca: { isCasinoEnabled: true },
+    ca: { isCasinoEnabled: false },
   },
   [BRANDS.CASINO_B]: {
-    en: { isLiveCasinoEnabled: true },
+    en: { isLiveCasinoEnabled: false },
     ca: { isCasinoEnabled: true },
   },
 };

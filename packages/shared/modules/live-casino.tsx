@@ -45,7 +45,7 @@ export const LiveCasinoLobby: React.FC = () => {
           fetchNextPage();
         }
       },
-      { threshold: 1 },
+      { threshold: 0.1, rootMargin: '50px' },
     );
 
     observer.observe(loadMoreElement);
@@ -121,7 +121,7 @@ export const LiveCasinoLobby: React.FC = () => {
             </p>
           )}
 
-          {/* Invisible trigger element to auto-load more games */}
+          {/* trigger element to auto-load more games */}
           <div
             ref={loadMoreRef}
             style={{ height: '150px', width: '100%', display: 'block' }}

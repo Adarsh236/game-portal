@@ -34,6 +34,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
   const dispatch = useDispatch();
   const { content, market } = useContent(brandId);
   const user = useSelector((state: RootState) => state.user);
+  const brand = useSelector((state: RootState) => state.brand);
 
   useEffect(() => {
     // Retrieve cookies for username and userMarket
@@ -56,7 +57,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
   }, [dispatch, brandId]);
 
   useEffect(() => {
-    const featureFlags = FEATURE_FLAGS[brandId]?.en;
+    const featureFlags = FEATURE_FLAGS[brandId]?.[market as 'en' | 'ca'];
     document.documentElement.dataset.theme = brandId;
     if (content && brandId && featureFlags) {
       dispatch(
@@ -67,7 +68,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
         }),
       );
     }
-  }, [dispatch, brandId, content]);
+  }, [dispatch, brandId, content, market]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -100,7 +101,15 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
         onClickNavigate={onClickNavigate}
         onClickToggle={onClickToggle}
       />
-      <main style={{ padding: 'var(--space-xl)' }}>{children}</main>
+      <main style={{ padding: 'var(--space-xl)' }}>
+        <h3>featureFlags</h3>
+        <p>
+          isLiveCasinoEnabled:{' '}
+          {brand.featureFlags.isLiveCasinoEnabled ? 'YES' : 'NO'}
+        </p>
+
+        {children}
+      </main>
       <ModalQueue />
     </>
   );
