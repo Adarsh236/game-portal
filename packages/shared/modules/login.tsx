@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser, UserState } from '../redux/slices/userSlice';
+import { setUser, UserState } from '../redux/slices/user-slice';
 import { RootState } from '../redux/store';
 
 import users from '@game-portal/constants/users.json';

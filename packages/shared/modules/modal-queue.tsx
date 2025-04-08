@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeModal } from '../redux/slices/modalSlice';
+import { removeModal } from '../redux/slices/modal-slice';
 import { RootState } from '../redux/store';
 import '../themes/modal.css';
 

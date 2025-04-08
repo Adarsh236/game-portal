@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../components/header';
 import { getCookie } from '../helpers/cookies';
 import { useContent } from '../hooks/useContent';
-import { setBrand } from '../redux/slices/brandSlice';
-import { addModal } from '../redux/slices/modalSlice';
-import { clearUser, setUser, UserState } from '../redux/slices/userSlice';
+import { setBrand } from '../redux/slices/brand-slice';
+import { addModal } from '../redux/slices/modal-slice';
+import { clearUser, setUser, UserState } from '../redux/slices/user-slice';
 import { RootState } from '../redux/store';
 
 interface BrandLayoutProps {

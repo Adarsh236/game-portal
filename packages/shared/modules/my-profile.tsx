@@ -10,7 +10,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCookie } from '../helpers/cookies';
-import { setUser } from '../redux/slices/userSlice';
+import { setUser } from '../redux/slices/user-slice';
 import { RootState } from '../redux/store';
 
 export const MyProfilePage: React.FC = () => {
