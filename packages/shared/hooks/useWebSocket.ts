@@ -1,4 +1,4 @@
-import { WEB_SOCKET_CONFIG } from '@game-portal/constants/brands';
+import { WEB_SOCKET_CONFIG } from '@game-portal/constants/brands/config';
 import { useEffect } from 'react';
 
 export const useWebSocket = () => {

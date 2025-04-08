@@ -1,7 +1,7 @@
 import {
   PAGE_SIZE,
   USE_INFINITY_QUERY_DB,
-} from '@game-portal/constants/brands';
+} from '@game-portal/constants/brands/config';
 import Games from '@game-portal/constants/games.json';
 import { Game } from '@game-portal/types';
 import { useInfiniteQuery } from '@tanstack/react-query';

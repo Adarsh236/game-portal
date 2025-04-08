@@ -1,4 +1,7 @@
-import { API_ENDPOINTS, USE_QUERY_DB } from '@game-portal/constants/brands';
+import {
+  API_ENDPOINTS,
+  USE_QUERY_DB,
+} from '@game-portal/constants/brands/config';
 import { Game } from '@game-portal/types';
 import { useQuery } from '@tanstack/react-query';
 import { initDB } from '../helpers/idbHelper';
