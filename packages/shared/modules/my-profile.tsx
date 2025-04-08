@@ -9,25 +9,26 @@ import {
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCookie } from '../helpers/utils';
+import { getCookie } from '../helpers/cookies';
 import { setUser } from '../redux/slices/userSlice';
 import { RootState } from '../redux/store';
 
 export const MyProfilePage: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
+  const brandId = useSelector((state: RootState) => state.brand.brandId);
 
   // Initialize first and last names from Redux or cookie.
-  const username = user.username || getCookie('username') || '';
-  const userMarket = user.market || getCookie('userMarket') || null;
+  const username = user.username || getCookie('username', brandId) || '';
+  const userMarket = user.market || getCookie('userMarket', brandId) || null;
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    setFirstName(user.firstName || getCookie('firstName') || '');
-    setLastName(user.lastName || getCookie('lastName') || '');
+    setFirstName(user.firstName || getCookie('firstName', brandId) || '');
+    setLastName(user.lastName || getCookie('lastName', brandId) || '');
   }, [user.firstName, user.lastName]);
 
   const handleEdit = () => {
@@ -36,8 +37,8 @@ export const MyProfilePage: React.FC = () => {
   };
 
   const handleCancel = () => {
-    setFirstName(user.firstName || getCookie('firstName') || '');
-    setLastName(user.lastName || getCookie('lastName') || '');
+    setFirstName(user.firstName || getCookie('firstName', brandId) || '');
+    setLastName(user.lastName || getCookie('lastName', brandId) || '');
     setIsEditing(false);
     setMessage('');
   };
@@ -48,7 +49,9 @@ export const MyProfilePage: React.FC = () => {
       setMessage('Please fill in both first and last names.');
       return;
     }
-    dispatch(setUser({ username, market: userMarket, firstName, lastName }));
+    dispatch(
+      setUser({ username, market: userMarket, firstName, lastName, brandId }),
+    );
     setMessage('Profile updated successfully!');
     setIsEditing(false);
   };

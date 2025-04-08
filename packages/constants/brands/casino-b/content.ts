@@ -49,16 +49,68 @@ const EN_CONTENT = {
     id: '1',
     title: "It's a Casino Day",
     description: '100% bonus up to €500 cash',
-    subDescription: '+ 100 Free Spins on Book of Dead',
+    subDescription: 'Brand Casino B, EN Content',
     buttonText: 'Close',
   },
 };
 
-export const Content = {
+const CA_CONTENT = {
+  brandName: 'Casino B',
   home: {
     title: 'Casino B',
-    description: 'Welcome to Casino B – Enjoy exclusive games!',
+    description: 'Bienvenue au Casino B – Profitez de jeux exclusifs !',
   },
+  header: {
+    title: 'Casino B',
+    pages: [
+      {
+        title: 'casino',
+        description: 'Bienvenue au Casino B – Profitez de jeux exclusifs !',
+        link: '/casino',
+      },
+      {
+        title: 'liveCasino',
+        description: 'Bienvenue au Casino B – Profitez de jeux exclusifs !',
+        link: '/live-casino',
+      },
+      {
+        title: 'My Profile',
+        description: 'Bienvenue au Casino B – Profitez de jeux exclusifs !',
+        link: '/my-profile',
+        isLoggedIn: true,
+      },
+    ],
+    buttons: {
+      login: {
+        text: 'Login',
+        link: '/login',
+      },
+      logout: {
+        text: 'Logout',
+        link: '/logout',
+      },
+    },
+  },
+  loginPage: {
+    headerTitle: 'Log in to Casino B',
+    title: 'Log in',
+    button: 'Log in',
+    userName: 'Username',
+    password: 'Password',
+    usernameError: 'Please enter a valid username',
+    passwordError: 'Password must be at least 8 characters long.',
+    invalidCredentials: 'Invalid username or password',
+  },
+  modal: {
+    id: '1',
+    title: "C'est une journée de casino",
+    description: 'Bonus de 100 % jusqu à 500 € en espèces',
+    subDescription: 'Brand Casino A, CA Content',
+    buttonText: 'Fermer',
+  },
+};
+
+export const Content = {
   en: EN_CONTENT,
-  ca: EN_CONTENT,
+  ca: CA_CONTENT,
 };

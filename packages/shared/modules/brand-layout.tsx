@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../components/header';
-import { getCookie } from '../helpers/utils';
+import { getCookie } from '../helpers/cookies';
 import { useContent } from '../hooks/useContent';
 import { setBrand } from '../redux/slices/brandSlice';
 import { addModal } from '../redux/slices/modalSlice';
@@ -37,10 +37,10 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
 
   useEffect(() => {
     // Retrieve cookies for username and userMarket
-    const username = getCookie('username');
-    const userMarket = getCookie('userMarket');
-    const firstName = getCookie('firstName');
-    const lastName = getCookie('lastName');
+    const username = getCookie('username', brandId);
+    const userMarket = getCookie('userMarket', brandId);
+    const firstName = getCookie('firstName', brandId);
+    const lastName = getCookie('lastName', brandId);
 
     if (username && userMarket) {
       dispatch(
@@ -49,6 +49,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
           market: userMarket,
           firstName,
           lastName,
+          brandId,
         } as UserState),
       );
     }

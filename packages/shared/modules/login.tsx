@@ -1,20 +1,16 @@
-import { User, UserLogin } from '@game-portal/types';
+import { UserLogin } from '@game-portal/types';
 import { CssBaseline, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../redux/slices/userSlice';
+import { setUser, UserState } from '../redux/slices/userSlice';
 import { RootState } from '../redux/store';
 
 import users from '@game-portal/constants/users.json';
 
 import Head from 'next/head';
 import { LoginForm } from '../components/login-form';
-
-interface UserLoginPageProps {
-  brandId: string;
-}
 
 const LoginInContainer = styled(Stack)(({ theme }) => ({
   height: 'calc((1 - var(--template-frame-height, 0)) * 100dvh)',
@@ -32,9 +28,10 @@ const LoginInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export const UserLoginPage: React.FC<UserLoginPageProps> = ({ brandId }) => {
+export const UserLoginPage: React.FC = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+  const brandId = useSelector((state: RootState) => state.brand.brandId);
   const content = useSelector((state: RootState) => state.brand.content);
   const [error, setError] = useState('');
 
@@ -51,7 +48,8 @@ export const UserLoginPage: React.FC<UserLoginPageProps> = ({ brandId }) => {
           market: user.market,
           firstName: user.firstName,
           lastName: user.lastName,
-        } as User),
+          brandId,
+        } as UserState),
       );
       router.push(`/${user.market}/casino`);
     } else {
