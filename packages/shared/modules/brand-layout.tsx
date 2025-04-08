@@ -19,7 +19,7 @@ interface BrandLayoutProps {
 }
 
 const ModalQueue = dynamic(
-  () => import('@game-portal/shared/modules/modal-queue'),
+  () => import('./modal-queue.js').then((mod) => mod.ModalQueue),
   {
     ssr: false,
     loading: () => <div>Loading notifications...</div>,
@@ -53,10 +53,10 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
         } as UserState),
       );
     }
-  }, [dispatch]);
+  }, [dispatch, brandId]);
 
   useEffect(() => {
-    const featureFlags = FEATURE_FLAGS[brandId].en;
+    const featureFlags = FEATURE_FLAGS[brandId]?.en;
     if (content && brandId && featureFlags) {
       dispatch(
         setBrand({
@@ -66,15 +66,14 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
         }),
       );
     }
-  }, [dispatch]);
+  }, [dispatch, brandId, content]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(addModal(content.modal));
-      console.log('@@ FF', content.modal);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [content]);
+  }, [dispatch, content]);
 
   const onClickNavigate = (link: string) => {
     router.push(`/${market}${link}`);

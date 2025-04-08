@@ -4,7 +4,7 @@ import { removeModal } from '../redux/slices/modal-slice';
 import { RootState } from '../redux/store';
 import '../themes/modal.css';
 
-const ModalQueue: React.FC = () => {
+export const ModalQueue: React.FC = () => {
   const dispatch = useDispatch();
   const modals = useSelector((state: RootState) => state.modal.queue);
 
@@ -31,5 +31,3 @@ const ModalQueue: React.FC = () => {
     </div>
   );
 };
-
-export default ModalQueue;

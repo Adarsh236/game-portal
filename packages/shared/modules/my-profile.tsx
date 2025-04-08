@@ -29,7 +29,7 @@ export const MyProfilePage: React.FC = () => {
   useEffect(() => {
     setFirstName(user.firstName || getCookie('firstName', brandId) || '');
     setLastName(user.lastName || getCookie('lastName', brandId) || '');
-  }, [user.firstName, user.lastName]);
+  }, [user.firstName, user.lastName, brandId]);
 
   const handleEdit = () => {
     setIsEditing(true);

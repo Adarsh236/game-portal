@@ -34,6 +34,10 @@ export const LiveCasinoLobby: React.FC = () => {
 
   useEffect(() => {
     if (!hasNextPage || isFetchingNextPage) return;
+
+    const loadMoreElement = loadMoreRef.current;
+    if (!loadMoreElement) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -43,10 +47,11 @@ export const LiveCasinoLobby: React.FC = () => {
       { threshold: 1 },
     );
 
-    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+    observer.observe(loadMoreElement);
 
     return () => {
-      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+      observer.unobserve(loadMoreElement);
+      observer.disconnect();
     };
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 

@@ -3,7 +3,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
 interface WelcomeProps {
-  content: any;
+  content: {
+    title: string;
+    description: string;
+  };
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -18,11 +21,10 @@ export const getStaticProps: GetStaticProps<WelcomeProps> = async ({
 }) => {
   const market = params?.market as string;
 
-  const content = (
+  const content =
     CASINO_CONTENT[BRANDS.CASINO_A][
       market as keyof (typeof CASINO_CONTENT)[typeof BRANDS.CASINO_A]
-    ] as any
-  ).home;
+    ].home;
 
   return {
     props: { market, content },

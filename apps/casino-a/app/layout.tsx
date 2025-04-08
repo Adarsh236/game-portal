@@ -1,6 +1,7 @@
 import '@game-portal/shared/themes/casino-a.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
+import { AppProps } from 'next/app';
 import MyApp from '../pages/_app';
 import './globals.css';
 
@@ -14,7 +15,7 @@ export default function RootLayout({
   pageProps,
 }: Readonly<{
   children: React.ReactNode;
-  pageProps: any;
+  pageProps: AppProps;
 }>) {
   return (
     <html lang="en">

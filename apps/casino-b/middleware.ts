@@ -57,6 +57,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl);
   }
 
+  if (!userMarket && segments[1] === 'my-profile') {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${market}/casino`;
+    return NextResponse.redirect(url);
+  }
+
   // Validate the "page" part of the URL.
   // Allowed routes after the market segment: welcome (""), "login", "casino", "my-profile"
   const allowedPaths = ['', 'login', 'casino', 'my-profile', 'live-casino'];

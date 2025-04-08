@@ -8,7 +8,7 @@ export interface Modal {
   buttonText: string;
 }
 
-interface ModalState {
+export interface ModalState {
   queue: Modal[];
 }
 
