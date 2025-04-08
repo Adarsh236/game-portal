@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<WelcomeProps> = async ({
     CASINO_CONTENT[BRANDS.CASINO_A][
       market as keyof (typeof CASINO_CONTENT)[typeof BRANDS.CASINO_A]
     ] as any
-  ).home || { title: 'Welcome', description: 'Welcome to our casino!' };
+  ).home;
 
   return {
     props: { market, content },

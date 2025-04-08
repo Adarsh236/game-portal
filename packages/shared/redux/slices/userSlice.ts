@@ -24,6 +24,7 @@ const userSlice = createSlice({
       state.market = action.payload.market;
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
+
       setCookie(`username=${action.payload.username}`);
       setCookie(`userMarket=${action.payload.market}`);
       setCookie(`firstName=${action.payload.firstName}`);
@@ -32,6 +33,8 @@ const userSlice = createSlice({
     clearUser(state) {
       state.username = null;
       state.market = null;
+      state.firstName = null;
+      state.lastName = null;
       clearCookie();
     },
   },

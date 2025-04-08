@@ -56,7 +56,7 @@ export const IMAGES_PATTERN = [
 export const PAGE_SIZE = 20; // Number of games per page
 
 export const WEB_SOCKET_CONFIG = {
-  url: 'wss://example.com/socket', // Replace with your WebSocket URL
+  url: 'wss://ws.postman-echo.com', // Replace with your WebSocket URL
   protocols: ['protocolOne', 'protocolTwo'], // Optional protocols
   options: {
     reconnect: true, // Automatically reconnect on close

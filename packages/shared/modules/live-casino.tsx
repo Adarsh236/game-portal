@@ -74,7 +74,10 @@ export const LiveCasinoLobby: React.FC = () => {
       </Head>
       <main>
         <h1>Casino Lobby </h1>
-        <p>Note: In this Page we are using useQuery from React Query</p>
+        <p>
+          Note: In this Page we are using useInfinityQuery with scrolling
+          feature from React Query
+        </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Grid

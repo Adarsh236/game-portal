@@ -1,14 +1,14 @@
 [
   {
     "username": "jack_sparrow",
-    "password": "TestUser1@",
+    "password": "TestUser1",
     "market": "en",
     "firstName": "jack",
     "lastName": "sparrow"
   },
   {
     "username": "captain_america",
-    "password": "TestUser2@",
+    "password": "TestUser2",
     "market": "ca",
     "firstName": "captain",
     "lastName": "america"
