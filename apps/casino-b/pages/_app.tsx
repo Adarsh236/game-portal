@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 
 import { BrandLayout } from '@game-portal/shared/modules/brand-layout';
 
-import '@game-portal/shared/themes/casino-b.css';
+import '@game-portal/shared/themes/casino-b/styles.css';
 import '../app/globals.css';
 
 import { BRANDS } from '@game-portal/constants/brands';
 import { store } from '@game-portal/shared/redux/store';
-import { casinoBTheme } from '@game-portal/shared/themes/casino-b-theme';
+import { casinoBTheme } from '@game-portal/shared/themes/casino-b/theme';
 import { ThemeProvider } from '@mui/material/styles';
 
 const queryClient = new QueryClient();

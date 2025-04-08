@@ -1,4 +1,4 @@
-import '@game-portal/shared/themes/casino-b.css';
+import '@game-portal/shared/themes/casino-b/styles.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
 import { AppProps } from 'next/app';
@@ -18,7 +18,7 @@ export default function RootLayout({
   pageProps: AppProps;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="casino-b">
       <body className="dsss">
         <AppRouterCacheProvider>
           <MyApp {...pageProps}>{children}</MyApp>

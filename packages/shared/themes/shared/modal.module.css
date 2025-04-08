@@ -1,4 +1,4 @@
-.modal-container {
+.container {
   display: flex;
   flex-direction: column;
   max-width: 500px;
@@ -21,4 +21,11 @@
   transform: translateY(-3rem) translateX(-50%);
   width: calc(-2rem + 100vw);
   z-index: 1299;
+}
+
+/* Define casino b variables */
+:root[data-theme='casino-b'] {
+  .container {
+    color: #68bb2c;
+  }
 }

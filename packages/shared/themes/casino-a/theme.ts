@@ -1,16 +1,16 @@
 'use client';
 import { createTheme } from '@mui/material/styles';
 import { Roboto } from 'next/font/google';
-import { getCssVariable } from '../helpers/utils';
+import { getCssVariable } from '../../helpers/utils';
 
-export const casinoBTheme = createTheme({
+export const casinoATheme = createTheme({
   cssVariables: true,
   palette: {
     primary: {
-      main: getCssVariable('--primary-color', '#298190'),
+      main: getCssVariable('--primary-color', '#872db6'),
     },
     secondary: {
-      main: getCssVariable('--secondary-color', '#4edab9'),
+      main: getCssVariable('--secondary-color', '#d48ed4'),
     },
     background: {
       default: getCssVariable('--background-color', '#ffffff'),

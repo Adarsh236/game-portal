@@ -57,6 +57,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
 
   useEffect(() => {
     const featureFlags = FEATURE_FLAGS[brandId]?.en;
+    document.documentElement.dataset.theme = brandId;
     if (content && brandId && featureFlags) {
       dispatch(
         setBrand({

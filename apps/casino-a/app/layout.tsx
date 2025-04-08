@@ -1,4 +1,4 @@
-import '@game-portal/shared/themes/casino-a.css';
+import '@game-portal/shared/themes/casino-a/styles.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
 import { AppProps } from 'next/app';

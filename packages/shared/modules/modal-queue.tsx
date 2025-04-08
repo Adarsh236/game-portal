@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeModal } from '../redux/slices/modal-slice';
 import { RootState } from '../redux/store';
-import '../themes/modal.css';
+import styles from '../themes/shared/modal.module.css';
 
 export const ModalQueue: React.FC = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export const ModalQueue: React.FC = () => {
   const currentModal = modals[0];
 
   return (
-    <div className="modal-container">
+    <div className={styles.container}>
       <p>{currentModal.message}</p>
       <h3>{currentModal.title}</h3>
       <h2>{currentModal.description}</h2>
