@@ -2,16 +2,19 @@
   "name": "@game-portal/shared",
   "version": "0.0.0",
   "private": true,
-  "main": "index.ts",
-  "types": "index.ts",
+  "main": "index.tsx",
+  "types": "index.tsx",
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint",
     "generate:component": "turbo gen react-component",
+    "test": "jest",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
     "@game-portal/eslint-config": "*",
     "@game-portal/typescript-config": "*",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@game-portal/jest-config": "*",
     "@turbo/gen": "^2.4.4",
     "@types/node": "^22.13.10",
     "@types/react": "19.0.12",
