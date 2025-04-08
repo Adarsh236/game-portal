@@ -191,7 +191,7 @@ This structure makes the code easy to maintain and scale.
   The live casino lobby page uses React Query’s infinite query feature to load additional games on scroll.
 
 - **Multi-Theme Support:**  
-  The app supports different themes (e.g., CasinoA and CasinoB) via CSS variables. Themes can be switched by changing the import path. We avoid using attribute `[data-theme="casino-a"]` on the `<html>` element for changing types so we can move the styles to separate packages accordingly
+  The app supports different themes (e.g., CasinoA and CasinoB) via CSS variables. Themes can be switched by changing the import path. Also we using attribute `[data-theme="casino-a"]` on the `<html>` element for changing styles.
 
 - **Pages:**
 
@@ -329,6 +329,13 @@ export const casinoATheme = createTheme({
     --secondary: #298190;
     --secondary-interaction-low: #ecf7ec;
     --secondary-interaction-medium: #298190;
+  }
+
+  /* Define casino b variables in Modal Queue*/
+  :root[data-theme='casino-b'] {
+    .container {
+      color: #68bb2c;
+    }
   }
   ```
 
