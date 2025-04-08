@@ -52,9 +52,14 @@ export function setCookie(
  * @param name The base name of the cookie.
  * @param brand Optional brand identifier to prefix the cookie name.
  */
-export function clearCookie(name: string, brand?: string): void {
+export function clearCookie(name?: string, brand?: string): void {
   //TODO: Use with brand ID
   //   const cookieName = brand ? `${brand}_${name}` : name;
+  //   document.cookie = `${name}=; Path=/; Expires=${new Date(0).toUTCString()}; SameSite=Strict`;
 
-  document.cookie = `${name}=; Path=/; Expires=${new Date(0).toUTCString()}; SameSite=Strict`;
+  document.cookie.split(';').forEach((c) => {
+    document.cookie = c
+      .replace(/^ +/, '')
+      .replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
+  });
 }

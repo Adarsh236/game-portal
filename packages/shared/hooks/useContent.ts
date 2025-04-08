@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export const useContent = (brandId: string) => {
   const defaultContent =
     CASINO_CONTENT[brandId] || CASINO_CONTENT[BRANDS.CASINO_A];
+  console.log('@@ defaultContent', defaultContent);
   const router = useRouter();
   const [market, setMarket] = useState('en');
   const [content, setContent] = useState(defaultContent?.en);

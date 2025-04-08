@@ -71,9 +71,10 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(addModal(content.modal));
+      console.log('@@ FF', content.modal);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [dispatch]);
+  }, [content]);
 
   const onClickNavigate = (link: string) => {
     router.push(`/${market}${link}`);

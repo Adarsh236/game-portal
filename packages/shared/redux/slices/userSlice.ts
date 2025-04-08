@@ -40,7 +40,7 @@ const userSlice = createSlice({
       state.market = null;
       state.firstName = null;
       state.lastName = null;
-      state.brandId && clearCookie(state.brandId);
+      state.brandId && clearCookie();
     },
   },
 });
