@@ -41,6 +41,7 @@ export const LiveCasinoLobby: React.FC = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
+          console.log('@@ fetch more');
           fetchNextPage();
         }
       },
@@ -78,7 +79,7 @@ export const LiveCasinoLobby: React.FC = () => {
         />
       </Head>
       <main>
-        <h1>Casino Lobby </h1>
+        <h1>Live Casino Lobby </h1>
         <p>
           Note: In this Page we are using useInfinityQuery with scrolling
           feature from React Query
@@ -113,17 +114,29 @@ export const LiveCasinoLobby: React.FC = () => {
               style={{
                 textAlign: 'center',
                 width: '100%',
-                paddingBottom: '1rem',
+                margin: '20px',
               }}
             >
               Loading more...
             </p>
           )}
+
           {/* Invisible trigger element to auto-load more games */}
           <div
             ref={loadMoreRef}
             style={{ height: '150px', width: '100%', display: 'block' }}
-          />
+          >
+            <p
+              style={{
+                textAlign: 'center',
+                width: '100%',
+                margin: '20px',
+                color: 'green',
+              }}
+            >
+              Start your adventure with more to pay!!
+            </p>
+          </div>
         </div>
       </main>
     </>

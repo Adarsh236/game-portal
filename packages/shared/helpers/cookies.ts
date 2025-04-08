@@ -10,7 +10,6 @@ export function getCookie(name: string, brand?: string): string | null {
   //TODO: Use with brand ID
   //   const cookieName = brand ? `${brand}_${name}` : name;
   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  console.log('@@ getCookie match', match, name, document.cookie);
   return match && match[2] ? decodeURIComponent(match[2]) : null;
 }
 
