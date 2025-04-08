@@ -1,4 +1,5 @@
 'use client';
+import { FEATURE_FLAGS } from '@game-portal/constants/brands';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -7,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../components/header';
 import { getCookie } from '../helpers/utils';
 import { useContent } from '../hooks/useContent';
+import { setBrand } from '../redux/slices/brandSlice';
 import { addModal } from '../redux/slices/modalSlice';
 import { clearUser, setUser, UserState } from '../redux/slices/userSlice';
 import { RootState } from '../redux/store';
@@ -32,11 +34,6 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
   const dispatch = useDispatch();
   const { content, market } = useContent(brandId);
   const user = useSelector((state: RootState) => state.user);
-  const contentA = useSelector((state: RootState) => state.brand.content);
-
-  // if (!brandId || !brandContent) {
-  //   return <div>Loading...</div>;
-  // }
 
   useEffect(() => {
     // Retrieve cookies for username and userMarket
@@ -57,18 +54,18 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
     }
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const featureFlags = FEATURE_FLAGS[brandId].en;
-  //   if (content && brandId && featureFlags) {
-  //     dispatch(
-  //       setBrand({
-  //         brandId,
-  //         content,
-  //         featureFlags,
-  //       }),
-  //     );
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    const featureFlags = FEATURE_FLAGS[brandId].en;
+    if (content && brandId && featureFlags) {
+      dispatch(
+        setBrand({
+          brandId,
+          content,
+          featureFlags,
+        }),
+      );
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -101,7 +98,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({
         onClickNavigate={onClickNavigate}
         onClickToggle={onClickToggle}
       />
-      <main style={{ padding: '16px' }}>{children}</main>
+      <main style={{ padding: 'var(--space-xl)' }}>{children}</main>
       <ModalQueue />
     </>
   );

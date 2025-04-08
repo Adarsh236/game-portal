@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { clearCookie, setCookie } from "../../helpers/utils";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { clearCookie, setCookie } from '../../helpers/utils';
 
 export interface UserState {
   username: string | null;
-  market: "en" | "ca" | null;
+  market: 'en' | 'ca' | null;
   firstName: string | null;
   lastName: string | null;
 }
@@ -16,7 +16,7 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<UserState>) {

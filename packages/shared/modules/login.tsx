@@ -1,55 +1,47 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import { setUser } from "../redux/slices/userSlice";
-import { useDispatch } from "react-redux";
-import { User, UserLogin } from "@game-portal/types";
-import { styled } from "@mui/material/styles";
-import { CssBaseline, Stack } from "@mui/material";
+import { User, UserLogin } from '@game-portal/types';
+import { CssBaseline, Stack } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../redux/slices/userSlice';
+import { RootState } from '../redux/store';
 
-import users from "@game-portal/constants/brands/casino-b/users.json";
+import users from '@game-portal/constants/users.json';
 
-import { LoginForm } from "../components/login-form";
-import Head from "next/head";
-import { useContent } from "../hooks/useContent";
+import Head from 'next/head';
+import { LoginForm } from '../components/login-form';
 
 interface UserLoginPageProps {
   brandId: string;
 }
 
 const LoginInContainer = styled(Stack)(({ theme }) => ({
-  height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
-  minHeight: "100%",
+  height: 'calc((1 - var(--template-frame-height, 0)) * 100dvh)',
+  minHeight: '100%',
   padding: theme.spacing(2),
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(4),
   },
-  "&::before": {
+  '&::before': {
     content: '""',
-    display: "block",
-    position: "absolute",
+    display: 'block',
+    position: 'absolute',
     zIndex: -1,
     inset: 0,
-    backgroundImage:
-      "radial-gradient(ellipse at 50% 50%, hsl(210, 100%, 97%), hsl(0, 0%, 100%))",
-    backgroundRepeat: "no-repeat",
-    ...theme.applyStyles("dark", {
-      backgroundImage:
-        "radial-gradient(at 50% 50%, hsla(210, 100%, 16%, 0.5), hsl(220, 30%, 5%))",
-    }),
   },
 }));
 
 export const UserLoginPage: React.FC<UserLoginPageProps> = ({ brandId }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { content, market } = useContent(brandId);
-
-  const [error, setError] = useState("");
+  const content = useSelector((state: RootState) => state.brand.content);
+  const [error, setError] = useState('');
 
   const handleLogin = ({ username, password }: UserLogin) => {
-    setError("");
+    setError('');
     const user = users?.find(
-      (data) => data.username === username && data.password === password
+      (data) => data.username === username && data.password === password,
     );
 
     if (user) {
@@ -59,13 +51,17 @@ export const UserLoginPage: React.FC<UserLoginPageProps> = ({ brandId }) => {
           market: user.market,
           firstName: user.firstName,
           lastName: user.lastName,
-        } as User)
+        } as User),
       );
       router.push(`/${user.market}/casino`);
     } else {
       setError(content.loginPage.invalidCredentials);
     }
   };
+
+  if (!content.loginPage) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>

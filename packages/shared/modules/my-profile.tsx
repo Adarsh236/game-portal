@@ -1,55 +1,55 @@
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
 import {
-  Container,
   Box,
-  Typography,
-  TextField,
   Button,
+  Container,
   Grid,
-} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../redux/slices/userSlice";
-import { RootState } from "../redux/store";
-import { getCookie } from "../helpers/utils";
+  TextField,
+  Typography,
+} from '@mui/material';
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCookie } from '../helpers/utils';
+import { setUser } from '../redux/slices/userSlice';
+import { RootState } from '../redux/store';
 
 export const MyProfilePage: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
 
   // Initialize first and last names from Redux or cookie.
-  const username = user.username || getCookie("username") || "";
-  const userMarket = user.market || getCookie("userMarket") || null;
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [message, setMessage] = useState<string>("");
+  const username = user.username || getCookie('username') || '';
+  const userMarket = user.market || getCookie('userMarket') || null;
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [message, setMessage] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    setFirstName(user.firstName || getCookie("firstName") || "");
-    setLastName(user.lastName || getCookie("lastName") || "");
+    setFirstName(user.firstName || getCookie('firstName') || '');
+    setLastName(user.lastName || getCookie('lastName') || '');
   }, [user.firstName, user.lastName]);
 
   const handleEdit = () => {
     setIsEditing(true);
-    setMessage("");
+    setMessage('');
   };
 
   const handleCancel = () => {
-    setFirstName(user.firstName || getCookie("firstName") || "");
-    setLastName(user.lastName || getCookie("lastName") || "");
+    setFirstName(user.firstName || getCookie('firstName') || '');
+    setLastName(user.lastName || getCookie('lastName') || '');
     setIsEditing(false);
-    setMessage("");
+    setMessage('');
   };
 
   // Save profile updates.
   const handleSave = () => {
     if (!firstName || !lastName) {
-      setMessage("Please fill in both first and last names.");
+      setMessage('Please fill in both first and last names.');
       return;
     }
     dispatch(setUser({ username, market: userMarket, firstName, lastName }));
-    setMessage("Profile updated successfully!");
+    setMessage('Profile updated successfully!');
     setIsEditing(false);
   };
 
@@ -64,10 +64,10 @@ export const MyProfilePage: React.FC = () => {
           sx={{
             mt: 8,
             p: 4,
-            border: "1px solid #ccc",
+            border: '1px solid #ccc',
             borderRadius: 2,
             boxShadow: 3,
-            backgroundColor: "white",
+            backgroundColor: 'white',
           }}
         >
           <Typography variant="h5" align="center" gutterBottom>

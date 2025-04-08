@@ -1,9 +1,8 @@
-import Button from "@mui/material/Button";
-import { themeUITheme } from "@game-portal/constants/brands/casino-b/theme";
-import { removeModal } from "../redux/slices/modalSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import "../themes/modal.css";
+import Button from '@mui/material/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeModal } from '../redux/slices/modalSlice';
+import { RootState } from '../redux/store';
+import '../themes/modal.css';
 
 const ModalQueue: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,9 +21,9 @@ const ModalQueue: React.FC = () => {
       <Button
         onClick={() => dispatch(removeModal(currentModal.id))}
         style={{
-          marginTop: "1rem",
-          backgroundColor: themeUITheme.colors.secondary,
-          color: "white",
+          marginTop: '1rem',
+          backgroundColor: 'var(--primary)',
+          color: 'white',
         }}
       >
         {currentModal.buttonText}
